@@ -13,9 +13,9 @@
         <h1>Custom Directives</h1>
         <p v-highlight:background.delayed="'lightgreen'">Color this</p>
         <p
-          v-local-highlight:background.delayed.blink="{
+          v-local-highlight:background.blink.delayed="{
             mainColor: 'lightgreen',
-            secondColor: 'red',
+            secondColor: 'lightgray',
             delay: 500
           }"
         >
@@ -45,7 +45,7 @@ export default {
             setInterval(() => {
               currentColor == secondColor
                 ? (currentColor = mainColor)
-                : (mainColor = secondColor);
+                : (currentColor = secondColor);
               if (binding.arg == "background") {
                 el.style.backgroundColor = currentColor;
               } else {
